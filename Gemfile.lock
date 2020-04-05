@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/rootstrap/yaaf.git
+  revision: 6bf3f79899a40ac26d79d7599c2baa31c8ddca7a
+  specs:
+    YAAF (0.1.0)
+      activemodel (> 4, < 7)
+      activerecord (> 4, < 7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  YAAF!
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
