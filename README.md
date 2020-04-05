@@ -1,24 +1,16 @@
-# README
+# YAAF-demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails application using the [https://github.com/rootstrap/yaaf](https://github.com/rootstrap/yaaf) gem to create form objects.
 
-Things you may want to cover:
+## Registration Form
 
-* Ruby version
+#### Description
 
-* System dependencies
+It creates an user after submitting the registration form and adds a default role to the user.
 
-* Configuration
+#### It uses
 
-* Database creation
+- Devise to handle user authentication (the form is used as the resource)
+- Rolify to manage user roles.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[See the form](app/forms/registration_form.rb)

@@ -30,4 +30,31 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  #
+  # (Optional) Translating form attributes
+  #
+  activemodel:
+    attributes:
+      registration_form:
+        first_name: Your very first name
+        last_name: Family Name
+        email: Email 📧
+        password: Password
+        password_confirmation: Repeat your password please
+
+  activerecord:
+    models:
+      user: User
+      department: Department
+  devise:
+    registrations:
+      new:
+        hint: (%{minimum_password_length} characters minimum)
+        submit: Submit
+
+  forms:
+    registration_form:
+      department_must_exist: Department must exist
+
+
+
