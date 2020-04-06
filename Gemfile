@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
@@ -14,7 +14,7 @@ gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
-gem 'YAAF', github: 'rootstrap/yaaf'
+gem 'YAAF', github: 'rootstrap/yaaf', require: 'yaaf'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
