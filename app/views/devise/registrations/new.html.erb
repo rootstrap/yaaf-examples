@@ -1,12 +1,18 @@
-<p><a href="https://www.github.com/rootstrap/yaaf-examples/blob/master/app/forms/registration_form.rb">See the form's code</a></p>
+<p><a href="https://www.github.com/rootstrap/yaaf-examples/blob/master/app/forms/registration_form.rb" target="_blank">See the form's code</a></p>
 
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <% if f.object.errors.keys.include? :base %>
-    <p><%= f.object.errors.messages[:base].join("\n") %></p>
+  <% if f.object.errors.messages[:base].any? %>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        <% f.object.errors.messages[:base].each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <div class="form-inputs">
@@ -21,8 +27,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit t('.submit') %>
+    <%= f.submit t('.submit'), class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
