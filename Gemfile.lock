@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/rootstrap/yaaf.git
-  revision: 6bf3f79899a40ac26d79d7599c2baa31c8ddca7a
+  revision: f18e41a8c49aaf66292f40e5fde33fca0d9ef354
   specs:
-    YAAF (0.1.0)
+    yaaf (0.1.0)
       activemodel (> 4, < 7)
       activerecord (> 4, < 7)
 
@@ -248,7 +248,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  YAAF!
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
@@ -271,6 +270,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  yaaf!
 
 RUBY VERSION
    ruby 2.7.1p83

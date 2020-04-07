@@ -14,7 +14,7 @@ gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
-gem 'YAAF', github: 'rootstrap/yaaf', require: 'yaaf'
+gem 'yaaf', github: 'rootstrap/yaaf'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
