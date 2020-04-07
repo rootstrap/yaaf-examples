@@ -1,4 +1,6 @@
-# YAAF-demo
+# yaaf-demo
+
+![CI](https://github.com/rootstrap/yaaf-examples/workflows/CI/badge.svg)
 
 This is a Rails application using the [https://github.com/rootstrap/yaaf](https://github.com/rootstrap/yaaf) gem to create form objects.
 
