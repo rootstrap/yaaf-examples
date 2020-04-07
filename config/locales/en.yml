@@ -36,11 +36,6 @@ en:
   activemodel:
     attributes:
       registration_form:
-        first_name: Your very first name
-        last_name: Family Name
-        email: Email 📧
-        password: Password
-        password_confirmation: Repeat your password please
 
   activerecord:
     models:
