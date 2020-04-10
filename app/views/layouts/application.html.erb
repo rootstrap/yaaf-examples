@@ -10,6 +10,12 @@
   </head>
 
   <body class="container mt-5">
+    <% flash.each do |key, value| %>
+      <div class="flash" role="alert">
+        <p><%= value.html_safe %></p>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
