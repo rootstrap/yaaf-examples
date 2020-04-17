@@ -9,13 +9,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container mt-5">
-    <% flash.each do |key, value| %>
-      <div class="flash" role="alert">
-        <p><%= value.html_safe %></p>
-      </div>
-    <% end %>
+  <body>
+    <main class="container pt-5">
+      <header class="mb-4">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.svg", draggable: false, class: "logo" %>
+        <% end %>
+        <h2 class="text-primary">Demo</h2>
+      </header>
 
-    <%= yield %>
+      <% flash.each do |key, value| %>
+        <div class="flash" role="alert">
+          <p><%= value.html_safe %></p>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
+    <footer class="mt-5">
+      <%= image_tag "footer.png", draggable: false, class: 'footer' %>
+    </footer>
   </body>
 </html>
