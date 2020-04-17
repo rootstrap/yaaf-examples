@@ -6,8 +6,8 @@ class PaymentForm < ApplicationForm
 
   before_save :decrease_stock
   before_save :mark_coupon_as_used
-  before_save :charge!
   after_save :update_account_transaction
+  after_save :charge!
 
   validate :product_must_have_stock
   validate :coupon_must_not_be_used
@@ -15,7 +15,7 @@ class PaymentForm < ApplicationForm
   def initialize(args = {})
     super(args)
 
-    @models = [payment, new_coupon]
+    @models = [payment]
   end
 
   private
@@ -47,20 +47,16 @@ class PaymentForm < ApplicationForm
   end
 
   def mark_coupon_as_used
-    return if @coupon.used?
+    return if @coupon.nil? || @coupon.used?
 
     coupon.update!(used_by_id: user.id)
   end
 
-  #
-  # Everytime the user submits a payment, they get a 5% discount coupon to share with a friend
-  #
-  def new_coupon
-    Coupon.new(user: user, discount_type: :percentage, discount_amount: 5)
-  end
-
   def payment
-    @payment ||= AccountTransaction.new(amount: account_transaction.amount)
+    @payment ||= AccountTransaction.new(
+      amount_cents: account_transaction.amount_cents,
+      user: user
+    )
   end
 
   def product

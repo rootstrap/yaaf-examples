@@ -11,8 +11,8 @@
 
   <body class="container mt-5">
     <% flash.each do |key, value| %>
-      <div class="flash" role="alert">
-        <p><%= value.html_safe %></p>
+      <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %>" role="alert">
+        <%= value.html_safe %>
       </div>
     <% end %>
 

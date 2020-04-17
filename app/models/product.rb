@@ -1,14 +1,13 @@
 # == Schema Information
 #
-# Table name: departments
+# Table name: products
 #
 #  id         :bigint           not null, primary key
 #  name       :string
+#  stock      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-FactoryBot.define do
-  factory :department do
-    name { Faker::IndustrySegments.sector }
-  end
+class Product < ApplicationRecord
+  validates :name, :stock, presence: true
 end

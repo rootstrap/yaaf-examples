@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_183331) do
+ActiveRecord::Schema.define(version: 2020_04_12_221731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_transactions", force: :cascade do |t|
+    t.bigint "paid_by_id"
+    t.bigint "product_id"
+    t.bigint "user_id", null: false
+    t.integer "amount_cents"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["paid_by_id"], name: "index_account_transactions_on_paid_by_id"
+    t.index ["product_id"], name: "index_account_transactions_on_product_id"
+    t.index ["user_id"], name: "index_account_transactions_on_user_id"
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.bigint "used_by_id", null: false
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["used_by_id"], name: "index_coupons_on_used_by_id"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -23,6 +43,13 @@ ActiveRecord::Schema.define(version: 2020_04_10_183331) do
 
   create_table "invites", force: :cascade do |t|
     t.string "invited_user_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "stock"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,4 +86,8 @@ ActiveRecord::Schema.define(version: 2020_04_10_183331) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "account_transactions", "account_transactions", column: "paid_by_id"
+  add_foreign_key "account_transactions", "products"
+  add_foreign_key "account_transactions", "users"
+  add_foreign_key "coupons", "users", column: "used_by_id"
 end

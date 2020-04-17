@@ -1,0 +1,26 @@
+<p><a href="https://www.github.com/rootstrap/yaaf-examples/blob/master/app/forms/payment_form.rb" target="_blank">See the form's code</a></p>
+
+<h2>Payment Form</h2>
+
+<div class="alert alert-success mt-4">
+  Paying transaction #<%= @transaction_to_pay.id %> for $<%= @transaction_to_pay.amount %>
+</div>
+
+<% if @payment_form.errors.any? %>
+  <div class="alert alert-danger">
+    <ul class="mb-0">
+      <% @payment_form.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= simple_form_for @payment_form, url: account_transactions_path, html: { class: 'col-6' } do |f| %>
+  <!-- Payment processor integration goes here -->
+  <%= image_tag 'payment.gif' %>
+  <p>Image above simulates your payment processor integration</p>
+  <%= f.input :processor_token, as: :hidden %> <!-- Gets added by the payment processor -->
+
+  <%= f.submit 'Pay now', class: 'btn btn-primary mt-2' %>
+<% end %>

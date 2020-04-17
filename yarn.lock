@@ -838,6 +838,11 @@
     webpack-cli "^3.3.10"
     webpack-sources "^1.4.3"
 
+"@stripe/stripe-js@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.4.0.tgz#287b0fb653d9a34321dfa8b52f8c99b7983f2eda"
+  integrity sha512-ZvrD4s0T2VcZLXIll0eO9YO/Gnr2sgHgycqvSVN5A3ok/USesD9SL6j1vX9wTy7DVbm0vvQQE01Jap6PjP1IVw==
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
