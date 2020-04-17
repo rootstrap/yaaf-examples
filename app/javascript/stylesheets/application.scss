@@ -1,1 +1,32 @@
+$theme-colors: (
+  "primary": #5800FF,
+  "secondary": #E6E6E6,
+  "success": #5800FF,
+  "info": #E6E6E6,
+  "warning": #FF00FF,
+  "danger": #FF00FF,
+  "light": #FFFFFF,
+  "dark": #000000
+);
+
 @import "~bootstrap/scss/bootstrap";
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  text-align: center;
+  background: #6700ff;
+}
+
+.logo {
+  height: 80px;
+}
+
+li {
+  margin-bottom: 1rem;
+}
